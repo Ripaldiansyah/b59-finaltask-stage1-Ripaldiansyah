@@ -1,0 +1,48 @@
+.bg-orange {
+  background-color: #e75300;
+  color: white;
+  font-weight: bold;
+}
+
+.bg-orange:hover {
+  background-color: #e75300;
+  color: black;
+}
+
+.outline-orange {
+  background-color: transparent;
+  border: 2px solid #e75300;
+  color: #e75300;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.outline-orange:hover {
+  background-color: #e75300;
+  color: black;
+  border: 2px solid #e75300;
+}
+
+.orange-icon {
+  color: #e75300;
+}
+
+.orange-icon:hover {
+  color: white;
+}
+
+.dark-light {
+  background-color: #2a2a2a;
+}
+
+.h-full {
+  height: calc(100vh - 200px) !important;
+}
+
+.file-upload:focus {
+  outline: none !important;
+}
+
+p {
+  margin: 0;
+}

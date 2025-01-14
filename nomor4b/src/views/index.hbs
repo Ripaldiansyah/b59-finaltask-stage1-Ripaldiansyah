@@ -1,0 +1,24 @@
+{{#> layout title="Home" user=user}}
+<div class="row mx-5">
+
+    {{#each heroes}}
+        <div class="col-12 col-md-5 col-lg-3 col-xl-2 mt-3">
+            <div class="card w-100 dark-light shadow">
+                <img src="{{this.photo}}"
+                    class="card-img-top" height="340" alt="{{this.name}}">
+                <div class="card-body dark-light">
+                    <h5 class="card-title fw-bold text-white">{{this.name}}</h5>
+                    <p class="card-subtitle fw-bold my-2 text-danger">{{this.Type.name}}</p>
+                    <a href="/{{this.id}}" class="btn btn-danger w-100 ">Details</a>
+                </div>
+            </div>
+        </div>
+
+        {{else}}
+         <div class="text-center">
+            <h1 class="text-white">Tidak ada data</h1>
+        </div>
+         {{/each}}
+    </div>
+{{/layout}}
+

@@ -1,0 +1,52 @@
+{{#>layout title="Add Hero"}}
+<section class="text-white">
+  <div class="container text-center p-2 py-md-5">
+    <h2 class="fw-bold">EDIT HERO</h2>
+    {{#if response}}
+                    <div class="alert {{#if (checkSelected response.status "success")}} alert-success
+                        {{else}}alert-danger {{/if}} " role=" alert">
+                        {{response.message}}
+                    </div>
+                    {{/if}}
+    <form action="/edit/{{myHero.id}}" method="post" enctype="multipart/form-data" id="formEditHero">
+      <div class="d-flex flex-column text-start mb-2">
+        <label for="heroName">Hero Name</label>
+        <input type="text" name="heroName" id="heroName" class="border-0 shadow rounded-1 py-2" required value="{{myHero.name}}" />
+      </div>
+      
+      <div class="d-flex flex-column text-start mb-2 mt-3">
+        <label for="heroType">Tipe Hero</label>
+        <select name="heroType" id="heroType" class="border-0 shadow rounded-1 py-2">
+
+          {{#each types}}
+           <option value="{{this.id}}" {{#if (checkSelected this.id myHero.typeId)}}selected {{/if}}>{{this.name}}</option>
+           {{/each}}
+       </select>
+      </div>
+      
+      <div class="text-start mb-2 ">
+        <label for="imageUrl">Upload Image</label>
+        <div class="w-100 d-md-flex align-items-center mt-2">
+          <div id="imagePreviewContainer" class="col col-md-3 me-md-4 mb-3 mb-md-0">
+            <img class="rounded mw-100 w-100 object-fit-fill shadow" height="240" id="imagePreview"
+              src="{{#if myHero}} {{myHero.photo}} {{else}} https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg {{/if}}"
+              alt="Image Preview" />
+          </div>
+          <div class="bg-white  border-0 shadow rounded-1 m-0 d-flex align-items-center w-100 h-25 ">
+            <input type="file" name="imageUrl" id="imageUrl" class="position-absolute z-0 file-upload text-black" accept="image/*"
+              onchange="previewImage(event)"  />
+            <label for="imageUrl" class="d-flex w-100 justify-content-between pe-4 rounded-1">
+              <p class="bg-dark-subtle px-4 py-3 rounded-1 shadow fw-bold text-muted z-2">choose
+              </p>
+              <i class="fa fa-paperclip my-auto" aria-hidden="true"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="text-end p-3">
+        <button class="btn btn-dark rounded-5 px-5 py-2 fw-bold bg-orange" id="btnEditHero">submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+{{/layout}}

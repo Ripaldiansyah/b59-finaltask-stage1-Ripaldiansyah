@@ -1,0 +1,27 @@
+{{#>layout title="Add Type"}}
+<section class="text-white">
+  <div class="container text-center p-2 py-md-5">
+    <h2 class="fw-bold">ADD NEW TYPE</h2>
+     {{#if response}}
+                    <div class="alert {{#if (checkSelected response.status "success")}} alert-success
+                        {{else}}alert-danger {{/if}} " role=" alert">
+                        {{response.message}}
+                    </div>
+                    {{/if}}
+    <form action="/type" method="post" id="formAddType">
+      <div class="d-flex flex-column text-start mb-2">
+        <label for="name">Nama Tipe</label>
+        <input type="text" name="name" id="name" class="border-0 shadow rounded-1 py-2" required />
+      </div>
+
+      <div class="text-end p-3">
+        <button class="btn btn-dark rounded-5 px-5 py-2 fw-bold bg-orange" id="btnAddType">submit</button>
+      </div>
+    </form>
+     {{>types types=types}}
+  </div>
+
+
+
+</section>
+{{/layout}}
